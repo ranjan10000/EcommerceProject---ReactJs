@@ -1,0 +1,31 @@
+/* Profile.css */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 16px;
+    width: 18rem;
+    display: inline-block;
+    vertical-align: top;
+    transition: transform 0.5s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    margin: 8px 0;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
