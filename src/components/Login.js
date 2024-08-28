@@ -10,6 +10,7 @@ function Login({ setAuthenticated }) {
   const navigate = useNavigate(); // Get the navigate function
 
   useEffect(() => {
+    
     // Check if credentials exist in local storage
     const storedUsername = localStorage.getItem('username');
     const storedPassword = localStorage.getItem('password');

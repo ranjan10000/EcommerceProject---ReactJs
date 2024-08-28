@@ -6,8 +6,8 @@ import '../css/Sidebar.css'; // Custom CSS for additional styling
 
 export default function AccountSettings() {
   return (
-    <div className="account-settings">
-      <h5 className="text-primary">Account Settings</h5>
+    <div className="account-settings p-4 bg-light rounded shadow-sm">
+      <h5 className="text-primary mb-4">Account Settings</h5>
       
       <nav className="nav nav-pills flex-column flex-sm-row mb-3">
         <Link to="create" className="flex-sm-fill text-sm-center nav-link">Create</Link>

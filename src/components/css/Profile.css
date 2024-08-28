@@ -1,18 +1,27 @@
 /* Profile.css */
+
+
+.product-details{
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    height: 580px;
+}
+
 .card {
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    margin: 16px;
-    width: 18rem;
-    display: inline-block;
-    vertical-align: top;
-    transition: transform 0.5s;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px;
+    width: 100%;
+    max-width: 320px;
+    transition: transform 0.3s, box-shadow 0.3s;
+
 }
 
 .card:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card h3 {
@@ -28,4 +37,23 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-body .btn {
+    width: 100%;
+}

@@ -1,12 +1,14 @@
 // src/CartItems.js
 import React, { useContext } from 'react';
-import { CartContext } from './usecontexts/CartProvider';
+import { CartContext } from '../usecontexts/CartProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './components/css/CartItems.css'; // Import custom styles
+import './css/CartItems.css'; // Import custom styles
 import { MdRemoveShoppingCart } from "react-icons/md";
 
 export default function CartItems() {
     const { carItems, removeFromCart } = useContext(CartContext);
+    
+    const total = carItems.reduce((acc, item) => acc + item.quantity * item.price, 0);
 
     if (carItems.length === 0) {
         return (
@@ -28,12 +30,24 @@ export default function CartItems() {
                             <h5 className="mb-1">{item.name}</h5>
                             <p className="mb-1">Category: {item.category}</p>
                         </div>
-                        <span className="cart-item-price">${item.price}</span>
+                        <span className="cart-item-quantity">{item.quantity}</span>
+                        <span className="cart-item-price">${item.quantity * item.price}</span>
+                        
                         <div className="removecart" onClick={() => removeFromCart(item.id)}>
                             <MdRemoveShoppingCart size={24} />
                         </div>
+                        <div className='total'>
+                            {}
+                        </div>
                     </div>
                 ))}
+            </div>
+
+            <div className="total-price-container mt-4">
+                <h4 className="d-flex justify-content-between">
+                    <span>Total:</span>
+                    <span>${total.toFixed(2)}</span>
+                </h4>
             </div>
         </div>
     );

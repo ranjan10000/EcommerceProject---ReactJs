@@ -11,7 +11,7 @@ import Setting from './components/Setting';
 import MainLayout from './components/MainLayout';  
 import ProductProvider from "./usecontexts/ProductProvider";
 import CartProvider from './usecontexts/CartProvider';
-import CartItems from './CartItems';
+import CartItems from './components/CartItems';
 
 // Create a component to handle conditional rendering
 function AppContent({ isAuthenticated ,setAuthenticated}) {
@@ -35,12 +35,12 @@ function AppContent({ isAuthenticated ,setAuthenticated}) {
         <Route element={<MainLayout />}>
         <Route path={ROUTE.HOME} element={isAuthenticated ? <Api><Home /></Api> : <Navigate to="/" />} />
        
-        <Route path={ROUTE.PROFILE} element={isAuthenticated ?     <ProductProvider><Profile /></ProductProvider> : <Navigate to="/" />} />
-        <Route path={`${ROUTE.SETTINGS}/*`} element={isAuthenticated ? <ProductProvider><Setting /></ProductProvider>: <Navigate to="/" />} />
-        <Route  path={'/products/cartitems'} element={isAuthenticated ? <CartItems/>: <Navigate to="/" />} />
+        <Route path={ROUTE.PROFILE} element={<ProductProvider><Profile /></ProductProvider>} />
+        <Route path={`${ROUTE.SETTINGS}/*`} element={ <ProductProvider><Setting /></ProductProvider>} />
+        <Route  path={'/products/cartitems'} element={<CartItems/>} />
         
         </Route>
-        <Route path={ROUTE.GET_PROJECT} element={isAuthenticated ? <ProjectDetail /> : <Navigate to="/" />} />
+        <Route path={ROUTE.GET_PROJECT} element={<ProjectDetail />} />
         {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
       </CartProvider>

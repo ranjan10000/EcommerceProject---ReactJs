@@ -3,7 +3,10 @@ import { ProductsContext } from "../usecontexts/ProductProvider";
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/Profile.css'; // If you have additional custom styles
 import { CartContext } from '../usecontexts/CartProvider';
-import { FaCartPlus } from "react-icons/fa";
+import { FaCartPlus} from "react-icons/fa";
+import { HiPlus } from "react-icons/hi";
+import { FaMinus } from "react-icons/fa6";
+
 
 export default function Profile() {
     const { addToCart } = useContext(CartContext);
@@ -30,7 +33,7 @@ export default function Profile() {
     }
 
     return (
-        <div className="container">
+        <div className="product-details">
             <h2 className="my-4">Product Details</h2>
             <div className="row">
                 {dummyData.map((item) => (
@@ -47,7 +50,7 @@ export default function Profile() {
                                         onClick={() => handleQuantityChange(item.id, -1)}
                                         disabled={(quantity[item.id] || 1) <= 1}
                                     >
-                                        -
+                                        <FaMinus/>
                                     </button>
                                     <span className="mx-2">{quantity[item.id] || 1}</span>
                                     <button 
@@ -55,7 +58,7 @@ export default function Profile() {
                                         className="btn btn-outline-secondary" 
                                         onClick={() => handleQuantityChange(item.id, 1)}
                                     >
-                                        +
+                                    <HiPlus/>
                                     </button>
                                 </div>
                                 <button 
