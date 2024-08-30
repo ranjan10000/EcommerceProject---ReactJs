@@ -1,23 +1,36 @@
 // src/CartItems.js
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartContext } from '../usecontexts/CartProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/CartItems.css'; // Import custom styles
 import { MdRemoveShoppingCart } from "react-icons/md";
+import { IoBagHandle } from "react-icons/io5";
+import OrderDetails from './SidebarComponents/OrderDetails';
 
 export default function CartItems() {
     const { carItems, removeFromCart } = useContext(CartContext);
-    
+    const [order ,setOrder] = useState({});
     const total = carItems.reduce((acc, item) => acc + item.quantity * item.price, 0);
 
     if (carItems.length === 0) {
         return (
-            <div className="container mt-2">
+            <div className="container mt-4">
                 <div className="alert alert-info" role="alert">
-                    No items in the cart.
+                    <img 
+                        style={{ width: '250px', height: '250px' }}
+                        src={require('../images/Empty-bro.png')}
+                        alt="Product-empty"
+                        className="img-fluid"
+                    />
+                    <span>No items in the cart.</span>
                 </div>
             </div>
         );
+    }
+    const handlePlaceOrder = (orders) =>{
+        setOrder(orders)
+        //console.log(orders);
+        
     }
 
     return (
@@ -36,9 +49,6 @@ export default function CartItems() {
                         <div className="removecart" onClick={() => removeFromCart(item.id)}>
                             <MdRemoveShoppingCart size={24} />
                         </div>
-                        <div className='total'>
-                            {}
-                        </div>
                     </div>
                 ))}
             </div>
@@ -49,6 +59,14 @@ export default function CartItems() {
                     <span>${total.toFixed(2)}</span>
                 </h4>
             </div>
+            <div className="text-right">
+                <button className='btn btn-success custom-button' onClick={() => handlePlaceOrder(carItems)}> 
+                    Buy Now 
+                    <IoBagHandle />
+                </button>
+            </div>
+            <OrderDetails orders={order}/>
         </div>
+        
     );
 }
