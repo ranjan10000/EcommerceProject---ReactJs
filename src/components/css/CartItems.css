@@ -1,4 +1,5 @@
 /* CartItems.css */
+
 .container {
     max-width: 900px; /* Adjust container width for better fit */
     margin: auto; /* Center the container */
@@ -20,6 +21,14 @@
 
 .cart-item-details {
     flex: 2; /* Take up more space for item details */
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-image {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
 }
 
 .cart-item-details h5 {
@@ -100,4 +109,5 @@
     font-size: 1.1rem;
     text-align: center;
     color: #555;
+    justify-content: center;
 }

@@ -9,7 +9,6 @@ export default function Home() {
   const status = useSelector((state) => state.cart.status);
   const error = useSelector((state) => state.cart.error);
 
-
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchData())

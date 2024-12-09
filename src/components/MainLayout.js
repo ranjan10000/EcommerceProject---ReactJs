@@ -4,10 +4,12 @@ import Navbar from './Navbar';
 
 
 
-function MainLayout() {
+function MainLayout({userRole}) {
+
+  console.log('MainLayout'+userRole);
   return (
     <div>
-      <Navbar />
+      <Navbar  userRole= {userRole}/>
       {/* The Outlet renders the child route components */}
       <Outlet />
     </div>

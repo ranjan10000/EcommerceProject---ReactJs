@@ -2,11 +2,11 @@ import { Route, Link, Routes } from "react-router-dom";
 import Create from "../ProductManagement/Create";
 import View from "../ProductManagement/View";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/Sidebar.css'; // Custom CSS for additional styling
+import '../css/Sidebar.css'; 
 
 export default function ProductSettings() {
+
   return (
-  
     <div className="account-settings p-4 bg-light rounded shadow-sm">
 
       <h5 className="text-primary mb-4">Product Settings</h5>

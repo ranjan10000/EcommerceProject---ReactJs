@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './css/Login.css'; // Import the CSS file
 
-function Login({ setAuthenticated }) {
+function Login({ setAuthenticated ,setUserRole }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isCheckingAuth, setIsCheckingAuth] = useState(true); 
@@ -30,8 +30,15 @@ function Login({ setAuthenticated }) {
       localStorage.setItem('username', username);
       localStorage.setItem('password', password);
       setAuthenticated(true); // Update the authenticated state
+      setUserRole('user');
       navigate('/home'); // Programmatically navigate to the home page
-    } else {
+    }else  if (username === 'admin' && password === 'pass') {
+      localStorage.setItem('username', username);
+      localStorage.setItem('password', password);
+      setAuthenticated(true); // Update the authenticated state
+      setUserRole('admin');
+      navigate('/home'); // Programmatically navigate to the home page
+    }  else {
       alert('Incorrect username or password');
     }
   };

@@ -26,7 +26,7 @@ const cartSlice = createSlice({
         removeFromCart(state, action) {
             state.cartItems = state.cartItems.filter(item => item.id !== action.payload);
         },
-        
+      },
         extraReducers: (builder) => {
             builder
                 .addCase(fetchData.pending, (state) => {
@@ -41,7 +41,6 @@ const cartSlice = createSlice({
                     state.error = action.error.message;
                 });
         },
-    },
 });
 
 export const { addToCart, removeFromCart } = cartSlice.actions;
