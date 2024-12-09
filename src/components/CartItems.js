@@ -38,7 +38,7 @@ export default function CartItems() {
                     <div className="cart-item-container d-flex justify-content-between align-items-center" key={item.id}>
                         <div className="cart-item-details">
                           <img 
-                                src={`/product_img/${item.image}`} 
+                                src={`product_img/${item.image}`} 
                                 alt={item.name} 
                                 className="cart-item-image"
                             />

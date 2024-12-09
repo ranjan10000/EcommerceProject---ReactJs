@@ -66,7 +66,7 @@ export default function Product() {
                     <div className="col-md-4" key={index}>
                         <div className="card mb-4 shadow-sm">
                             <img
-                                src={item.image ? `/product_img/${item.image}` : null}
+                                src={item.image ? `product_img/${item.image}` : null}
                                 className="card-img-top"
                                 alt={item.name}
                             />
