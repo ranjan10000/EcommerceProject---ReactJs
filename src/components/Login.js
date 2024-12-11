@@ -1,6 +1,6 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState ,useEffect ,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import {LoginContext} from '../usecontexts/login'
 import './css/Login.css'; // Import the CSS file
 
 function Login({ setAuthenticated ,setUserRole }) {
@@ -8,6 +8,9 @@ function Login({ setAuthenticated ,setUserRole }) {
   const [password, setPassword] = useState('');
   const [isCheckingAuth, setIsCheckingAuth] = useState(true); 
   const navigate = useNavigate(); // Get the navigate function
+
+  const [userLogin] = useContext(LoginContext); 
+
 
   useEffect(() => {
     
@@ -26,26 +29,24 @@ function Login({ setAuthenticated ,setUserRole }) {
 
   const handleLogin = (e) => {
     e.preventDefault(); 
-    if (username === 'user' && password === 'pass') {
+
+    const user = userLogin.find(
+      (user) => user.userName === username && user.password === password
+    );
+
+    if (user) {
       localStorage.setItem('username', username);
       localStorage.setItem('password', password);
-      setAuthenticated(true); // Update the authenticated state
-      setUserRole('user');
-      navigate('/home'); // Programmatically navigate to the home page
-    }else  if (username === 'admin' && password === 'pass') {
-      localStorage.setItem('username', username);
-      localStorage.setItem('password', password);
-      setAuthenticated(true); // Update the authenticated state
-      setUserRole('admin');
-      navigate('/home'); // Programmatically navigate to the home page
-    }  else {
+      setAuthenticated(true); 
+      setUserRole(user.role);
+      navigate('/home');
+    }else {
       alert('Incorrect username or password');
     }
   };
 
-  // Don't render the login form until auth checking is complete
   if (isCheckingAuth) {
-    return null; // or a loading spinner/placeholder
+    return null;
   }
 
   return (

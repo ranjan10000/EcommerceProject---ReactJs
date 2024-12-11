@@ -4,8 +4,8 @@ import ProductSettings from './ProductSettings';
 import UserSettings from './UserSettings';
 import OrderDetails from './OrderDetails';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/Navbar.css'; // Custom CSS for additional styling
-import '../css/Sidebar.css'; // Custom CSS for additional styling
+import '../css/Navbar.css';
+import '../css/Sidebar.css';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import { FaUser, FaBell } from 'react-icons/fa';
 import { IoIosGift } from 'react-icons/io';

@@ -13,7 +13,7 @@ import ProductProvider from "./usecontexts/ProductProvider";
 import CartProvider from './usecontexts/CartProvider';
 import CartItems from './components/CartItems';
 import AdminDashboard from './components/SidebarComponents/AdminDashboard'
-
+import LoginProvider from './usecontexts/login';
 
 // Create a component to handle conditional rendering
 function AppContent({ isAuthenticated ,setAuthenticated, userRole, setUserRole}) {
@@ -29,8 +29,8 @@ function AppContent({ isAuthenticated ,setAuthenticated, userRole, setUserRole})
 
   return (
     <div>
+    <LoginProvider>
       {isAuthenticated && shouldShowNavbar}
-  
       <CartProvider>
       <Routes>
         <Route path="/" element={<Login setAuthenticated={setAuthenticated} setUserRole ={setUserRole} />} />
@@ -48,6 +48,7 @@ function AppContent({ isAuthenticated ,setAuthenticated, userRole, setUserRole})
 
       </Routes>
       </CartProvider>
+      </LoginProvider>
     </div>
   );
 }

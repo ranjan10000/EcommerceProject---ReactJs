@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchData } from '../reducer/CardSlice';
+import { fetchData } from '../slice/CartSlice';
 
 export default function Home() {
   const dispatch = useDispatch();
